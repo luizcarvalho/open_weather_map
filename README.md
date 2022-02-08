@@ -1,38 +1,64 @@
 # OpenWeatherMap
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/open_weather_map`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A Ruby interface to the [Open Weather Map API](https://openweathermap.org/api).
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'open_weather_map'
+gem 'open_weather_map', gituhub: 'luizcarvalho/open_weather_map'
 ```
 
 And then execute:
 
-    $ bundle install
+```sh
+> bundle install
+```
 
 Or install it yourself as:
 
-    $ gem install open_weather_map
+```sh
+> gem install open_weather_map
+```
 
-## Usage
+## Quick start
 
-TODO: Write usage instructions here
+### Configuration
 
-## Development
+You need set `appid`variable (you can found it [here](https://home.openweathermap.org/api_keys)). You can simple set environment variable `OPEN_WEATHER_MAP_APP_ID` or use configuration module. With it, you change others configurations too.
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```ruby
+OpenWeatherMap.configure do |config|
+    config.lang = 'en' # or variable OPEN_WEATHER_MAP_LANG
+    config.base_url = 'https://api.openweathermap.org' # or variable OPEN_WEATHER_MAP_LANG
+    config.api_version = '2.5' # or variable OPEN_WEATHER_MAP_API_VERSION
+    config.appid = # OPEN_WEATHER_MAP_APP_ID
+    config.units = 'metric' # or variable OPEN_WEATHER_MAP_UNITS
+end
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+### Usage
+
+You can use this client to get current weather data and daily forecast up to 16 days.
+
+To get current weather data
+
+```ruby
+# https://openweathermap.org/current
+api_client.call_api('data/weather', query_params: { lat: '-10.1837852', lon: '-48.3336423' })
+```
+
+To get forecast weather data from 5 days, for example
+
+```ruby
+# https://openweathermap.org/forecast5
+api_client.call_api('data/forecast', query_params: { lat: '-10.1837852', lon: '-48.3336423' })
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/open_weather_map.
+Bug reports and pull requests are welcome on GitHub at https://github.com/luizcarvalho/open_weather_map.
 
 ## License
 
