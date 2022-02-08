@@ -8,6 +8,20 @@ module OpenWeatherMap
       @config = Configuration.default
     end
 
+    # Fetch OpenWetcherMap API
+    #
+    #    api_client = OpenWeatherMap::ApiClient.new
+    #    coordinates = { lat: '-10.1837852', lon: '-48.3336423' }
+    #    api_client.call_api('data/weather', query_params: coordinates)
+    #
+    # @param [String] path in format 'namespace/path'
+    # @param [Hash] options  to request
+    # @option options [String] :lat latitude
+    # @option options [String] :lon longitude
+    #
+    # @see https://openweathermap.org/current for more options
+    #
+    # @return [Hash]
     def call_api(path, options = {})
       request = build_request(path, options)
 
