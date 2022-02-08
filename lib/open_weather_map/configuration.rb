@@ -42,10 +42,12 @@ module OpenWeatherMap
       @units = ENV['OPEN_WEATHER_MAP_UNITS'] || 'metric'
     end
 
+    # The default Configuration object.
     def self.default
       @default ||= Configuration.new
     end
 
+    # The used for configuration block interface
     def configure
       yield(self) if block_given?
     end
