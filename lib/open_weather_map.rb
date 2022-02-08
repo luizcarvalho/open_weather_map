@@ -6,6 +6,9 @@ require_relative 'open_weather_map/configuration'
 require_relative 'open_weather_map/version'
 require_relative 'open_weather_map/api_client'
 
+require_relative 'open_weather_map/models/weather'
+require_relative 'open_weather_map/models/forecast'
+
 module OpenWeatherMap
   class Error < StandardError; end
 

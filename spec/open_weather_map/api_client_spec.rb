@@ -10,12 +10,17 @@ RSpec.describe OpenWeatherMap::ApiClient do
   describe '.call_api' do
     let(:coordinates) { { lat: '-10.1837852', lon: '-48.3336423' } }
     let(:weather_response) { api_client.call_api('data/weather', query_params: coordinates) }
-    it 'response  HTTP status code 200' do
+    let(:forecast_response) { api_client.call_api('data/forecast', query_params: coordinates) }
 
+    it 'weather status code 200' do
       expect(weather_response[:cod]).to eq(200)
     end
 
-    it 'does something' do
+    it 'forecast status code 200' do
+      expect(forecast_response[:cod]).to eq('200')
+    end
+
+    it 'have all valid keys' do
       response = api_client.call_api('data/weather', query_params: coordinates)
 
       expect(response.keys).to include(:weather, :main, :name)
