@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Luiz Carvalho"]
   spec.email         = ["contato@luizcarvalho.com"]
 
-  spec.summary       = "Fetch Weather  information from https://openweathermap.org/"
+  spec.summary       = "Ruby client to fetch weather information from https://openweathermap.org/"
   spec.description   = "Get information about current weather and median from the next 5 days"
   spec.homepage      = "https://github.com/luizcarvalho/open_weather_map"
   spec.license       = "MIT"
