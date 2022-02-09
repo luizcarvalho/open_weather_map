@@ -16,6 +16,8 @@ module OpenWeatherMap
       main&.dig(:temp)
     end
 
+    alias_method :temp, :temperature
+
     def date
       return unless dt_txt
 
