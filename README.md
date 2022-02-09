@@ -2,6 +2,9 @@
 
 A Ruby interface to the [Open Weather Map API](https://openweathermap.org/api).
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/6464e896da089aca5ade/maintainability)](https://codeclimate.com/github/luizcarvalho/open_weather_map/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/6464e896da089aca5ade/test_coverage)](https://codeclimate.com/github/luizcarvalho/open_weather_map/test_coverage)
+
 ## Installation
 
 Add this line to your application's Gemfile:
